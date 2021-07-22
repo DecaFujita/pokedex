@@ -1,0 +1,15 @@
+.button-deal {
+    background-color: grey;
+    color: white;
+    border: 2px solid grey;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: large;
+    width: 100%;
+    cursor: pointer;
+}
+
+.button-deal:hover {
+    background-color: white;
+    color: grey;
+}

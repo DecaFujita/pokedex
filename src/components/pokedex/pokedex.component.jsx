@@ -25,12 +25,11 @@ class Pokedex extends React.Component {
     render() {
         return(
             <div className='pokedex'>
-                <div className='pokedex-header'>
-                    <h1 className='pokedex-title'> Pokedex {this.props.id}</h1>
-                    <p className='pokedex-points'>Score: {this.props.score}</p>
-                </div>
-        
                 <div className='pokedex-hand'>
+                    <div className='pokedex-header'>
+                        <h1 className='pokedex-title'> Pokedex {this.props.id}</h1>
+                        <p className='pokedex-points'>Score: {this.props.score}</p>
+                    </div>
                     {this.state.cards
                         .filter((card, index) => index < 4 )
                         .map(({id, ...otherCardsProps}) => (

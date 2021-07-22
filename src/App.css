@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  padding-top: 100px;
 }
 
 .App-logo {
@@ -35,4 +36,11 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.deal-btn {
+  width: 80%;
+  margin: auto;
+  height: 50px;
+  text-align: left;
 }
