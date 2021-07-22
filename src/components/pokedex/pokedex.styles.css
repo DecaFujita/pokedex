@@ -1,0 +1,17 @@
+.pokedex {
+    width: 80%;
+    margin: auto;
+}
+
+.pokedex-header {
+    width: 860px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.pokedex-hand {
+    display: flex;
+    justify-content: center;
+}
