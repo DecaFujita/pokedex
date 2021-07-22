@@ -1,0 +1,8 @@
+.pokecardback{
+    width: 20%;
+    height: 270px;
+    margin: 10px;
+    border-radius: 10px;
+    background-color: red;
+    box-shadow:1px 1px 3px grey;
+}

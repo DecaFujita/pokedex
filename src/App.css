@@ -43,3 +43,10 @@
   height: 50px;
   text-align: left;
 }
+
+.message {
+  margin-top: 5px;
+  font-size: 40px;
+  color: green;
+  font-weight: bold;
+}

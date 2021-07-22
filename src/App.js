@@ -20,25 +20,23 @@ class App extends React.Component {
         {id: 94, name: 'Gengar', type: 'poison', base_experience: 225},
         {id: 133, name: 'Eevee', type: 'normal', base_experience: 65}
       ],
-      hands: [
-        {
-          id: 1,
-          hand: [],
-          score: 0 
-        },
-        {
-          id: 2,
-          hand: [],
-          score: 0 
-        }
-      ]
+      pokedex1: [],
+      pokedex2: [],
+      score1: 0,
+      score2: 0,
+      message:""
     }
   }
 
   dealCards = () => {
-    let deck = this.state.cards
+    const { cards, score2 } = this.state
+    let deck = []
     let hand1 = []
-    let i = deck.length
+    let i = cards.length
+    for (let n=0; n < i; n++) {
+      deck.push(cards[n])
+    }
+    
     while (i > 4) {
       let randomNumber = Math.floor(Math.random() * deck.length)
       hand1.push(deck[randomNumber])
@@ -46,20 +44,32 @@ class App extends React.Component {
       i--
     }
     let hand2 = deck;
+    this.setState({pokedex1: hand1})
+    this.setState({pokedex2: hand2})
+    let count = 0;
+    for (let j=0; j<4; j++) {
+      count = count + deck[j].base_experience
+    }
+    this.setState({score1: 872-count})
+    this.setState({score2: count})
 
-
-    console.log(this.state.hands)
+    if (count > 436) {
+      this.setState({message: "Pokedex 2 won!"})
+    } else if (count == 436) {
+      this.setState({message: "It was a draw!"})
+    } else {
+      this.setState({message: "Pokedex 1 won!"})
+    }
   }
 
   render() {
+    const { pokedex1, pokedex2, score1, score2 } = this.state;
     return (
       <div className="App">
-        {this.state.hands.map(({id, ...otherHandsProps}) => (
-          <Pokedex key={id}  id={id} {...otherHandsProps} />
-        ))}
-        <div className='deal-btn'>
-          <Button action={this.dealCards}/>
-        </div>
+        <Pokedex key={1} id={1} pokedex={pokedex1} score={score1} />
+        <Pokedex key={2} id={2} pokedex={pokedex2} score={score2}/>
+        <Button action={this.dealCards} text={'Deal cards'}/>
+        <p className="message">{this.state.message}</p>
       </div>
     );
   }
