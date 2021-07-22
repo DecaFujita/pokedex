@@ -2,8 +2,8 @@ import React from 'react';
 
 import './button.styles.css';
 
-const Button = () => (
-    <button className='button-deal'>
+const Button = ({ action }) => (
+    <button className='button-deal' onClick={action}>
         text
     </button>
 );
